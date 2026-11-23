@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    @apply bg-brand-background text-brand-text-primary;
+
+    color-scheme: dark;
+    font-family: system-ui, sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    width: 100%;
+    max-width: 100%;
+    min-width: 320px;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply min-w-[320px] bg-brand-background text-brand-text-primary;
+
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-wrap: anywhere;
+  }
+
+  #root,
+  #app-root {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-brand-text-primary;
+  }
+
+  p {
+    @apply text-brand-text-secondary;
+  }
+
+  img,
+  video,
+  canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  :where(
+      a,
+      button,
+      input,
+      select,
+      textarea,
+      summary,
+      [role='button'],
+      [tabindex]:not([tabindex='-1'])
+    ):focus-visible {
+    @apply outline-brand-accent;
+
+    outline-style: solid;
+    outline-width: 2px;
+    outline-offset: 3px;
+  }
+
+  :where(.brand-cta, .bg-brand-cta):focus-visible {
+    @apply outline-brand-cta-hover;
+  }
+}
+
+@layer components {
+  .brand-surface {
+    @apply border-brand-border bg-brand-surface;
+  }
+
+  .brand-surface-raised {
+    @apply border-brand-border bg-brand-surface-raised;
+  }
+
+  .brand-cta {
+    @apply bg-brand-cta text-brand-text-primary;
+  }
+
+  .brand-cta:hover {
+    @apply bg-brand-cta-hover;
+  }
+}
+
+@layer utilities {
+  .fluid-width {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

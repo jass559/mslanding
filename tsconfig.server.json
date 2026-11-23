@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "lib": ["ES2022"],
+    "types": ["node"],
+    "rootDir": ".",
+    "outDir": "dist/server",
+    "noEmit": false,
+    "verbatimModuleSyntax": false,
+    "sourceMap": true,
+    "declaration": true,
+    "paths": {
+      "@server": ["server/src/index.ts"],
+      "@server/*": ["server/src/*"],
+      "@shared": ["shared/index.ts"],
+      "@shared/*": ["shared/*"]
+    }
+  },
+  "include": ["server/src/**/*.ts", "shared/**/*.ts"],
+  "exclude": ["client", "dist", "node_modules", "**/*.test.ts", "**/*.spec.ts"]
+}
