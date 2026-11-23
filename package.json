@@ -15,7 +15,8 @@
     "verify:content": "tsx scripts/verifyContentFixture.ts",
     "build:client": "npm run verify:content && npm exec -- vite build --outDir dist/client",
     "build:server": "tsx scripts/buildServer.ts dist/server",
-    "build": "tsx scripts/build.ts"
+    "build": "npm run prisma:generate && tsx scripts/build.ts",
+    "start": "npm run prisma:migrate:deploy && node dist/server/index.js"
   },
   "dependencies": {
     "@prisma/client": "5.22.0",
