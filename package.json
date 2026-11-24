@@ -19,8 +19,7 @@
     "build:client": "npm run verify:content && npm exec -- vite build --outDir dist/client",
     "build:server": "tsx scripts/buildServer.ts dist/server",
     "build": "npm run prisma:generate && tsx scripts/build.ts",
-    "start": "find dist -maxdepth 3 && npm run prisma:migrate:deploy && node dist/server/index.js"
-
+    "start": "npm run prisma:migrate:deploy && node dist/server/index.js"
   },
   "dependencies": {
     "@prisma/client": "5.22.0",
